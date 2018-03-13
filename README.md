@@ -1,6 +1,6 @@
 # mpvue-zanui
 
-> 使用 mpvue 重写 zanui-weapp
+> 使用 mpvue 重写 [zanui-weapp](https://github.com/youzan/zanui-weapp/)
 
 ## 使用方法
 
@@ -23,4 +23,7 @@ npm run dev
 - Field 输入框界面疯狂弹出输入法，带圆角输入框的 value 被替换
 - ……
 
-
+## todo
+-- [ ] props 属性使用对象包装
+-- [ ] props 中不注入 function，用 $emit 替换
+-- [ ] CSS 全局引用改为分块引用
