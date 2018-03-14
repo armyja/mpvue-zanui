@@ -1,7 +1,7 @@
 export default {
   // 基础类型输入框配置
   base: {
-    name: {
+    asdname: {
       focus: true,
       title: '收货人',
       placeholder: '名字',
@@ -54,7 +54,7 @@ export default {
   },
   // Form 中使用输入框
   form: {
-    name: {
+    name1: {
       placeholder: '请输入收货人姓名',
       componentId: 'form:test:name'
     },

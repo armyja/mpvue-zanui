@@ -24,7 +24,7 @@
 <script>
   import {extractComponentId} from '../../utils/helper'
   const maohao = ':'
-  export default {
+export default {
     props: ['name', 'componentId', 'items', 'checkedValue', 'activeColor', 'handleZanSelectChange'],
     data () {
       return {

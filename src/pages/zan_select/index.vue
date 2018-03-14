@@ -7,14 +7,14 @@
     <div class="zan-panel-title">基础用法</div>
     <div class="zan-panel">
       <div>
-        <ZanSelect v-bind="{ items, checkedValue: checked.base, componentId: 'base', handleZanSelectChange }"/>
+        <zan-select v-bind="{ items, checkedValue: checked.base, componentId: 'base', handleZanSelectChange }"/>
       </div>
     </div>
 
     <div class="zan-panel-title">自定义高亮颜色</div>
     <div class="zan-panel">
       <div>
-        <ZanSelect v-bind="{ items, checkedValue: checked.color, activeColor, componentId: 'color', handleZanSelectChange }"/>
+        <zan-select v-bind="{ items, checkedValue: checked.color, activeColor, componentId: 'color', handleZanSelectChange }"/>
       </div>
     </div>
 
@@ -22,7 +22,7 @@
     <form @submit="formSubmit">
       <div class="zan-panel">
         <div>
-          <ZanSelect v-bind="{ items, checkedValue: checked.form, name: 'formtest', componentId: 'form',  handleZanSelectChange }"/>
+          <zan-select v-bind="{ items, checkedValue: checked.form, name: 'formtest', componentId: 'form',  handleZanSelectChange }"/>
         </div>
       </div>
 
@@ -32,7 +32,7 @@
           formType="submit">提交数据</button>
       </div>
     </form>
-    <ZanTopTips v-bind="zanTopTips"/>
+    <zan-top-tips v-bind="zanTopTips"/>
   </div>
 </template>
 

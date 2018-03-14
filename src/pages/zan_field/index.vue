@@ -6,9 +6,9 @@
     <!-- Field 基础用法 -->
     <div class="zan-panel-title">基础用法</div>
     <div class="zan-panel">
-      <ZanField v-bind="Object.assign({}, handleFunctions, config.base.name)" :value="value"/>
-      <ZanField v-bind="Object.assign({}, handleFunctions, config.base.tel)"/>
-      <ZanField v-bind="Object.assign({}, handleFunctions, config.base.address)"/>
+      <zan-field v-bind="Object.assign({}, handleFunctions, base.name)" :value="value"/>
+      <zan-field v-bind="Object.assign({}, handleFunctions, base.tel)"/>
+      <zan-field v-bind="Object.assign({}, handleFunctions, base.address)"/>
     </div>
 
     <div class="zan-btns">
@@ -20,7 +20,7 @@
     <!-- 去除标题后的输入框样式 -->
     <div class="zan-panel-title">无标题输入框</div>
     <div class="zan-panel">
-      <ZanField v-bind="Object.assign({}, handleFunctions, config.notitle)" :value="textareaValue"/>
+      <zan-field v-bind="Object.assign({}, handleFunctions, notitle)" :value="textareaValue"/>
     </div>
 
     <div class="zan-btns">
@@ -31,16 +31,16 @@
 
     <!-- 使用 Field 圆角样式 -->
     <div class="zan-panel-title field__title--radius">圆角输入框</div>
-    <ZanField v-bind="Object.assign({}, handleFunctions, config.radius.totalPrice)"/>
-    <ZanField v-bind="Object.assign({}, handleFunctions, config.radius.excludePrice)"/>
-    <ZanField v-bind="Object.assign({}, handleFunctions, config.radius.notitle)"/>
+    <zan-field v-bind="Object.assign({}, handleFunctions, radius.totalPrice)"/>
+    <zan-field v-bind="Object.assign({}, handleFunctions, radius.excludePrice)"/>
+    <zan-field v-bind="Object.assign({}, handleFunctions, radius.notitle)"/>
 
     <!-- form 中使用 Field -->
     <div class="zan-panel-title">Form 表单中的field应用</div>
     <form @submit="formSubmit" @reset="formReset">
       <div class="zan-panel">
-        <ZanField v-bind="Object.assign({}, handleFunctions, config.form.name)"/>
-        <ZanField v-bind="Object.assign({}, handleFunctions, config.form.tel)"/>
+        <zan-field v-bind="Object.assign({}, handleFunctions, form.name)"/>
+        <zan-field v-bind="Object.assign({}, handleFunctions, form.tel)"/>
         <div class="zan-btns">
           <button
             class="zan-btn zan-btn--primary"
@@ -125,14 +125,77 @@
 
 <script>
   import ZanField from '../../components/zan/field'
-  import config from './config'
   export default {
     components: {
       ZanField
     },
     data () {
       return {
-        config,
+        base: {
+          name: {
+            // focus: true,
+            title: '收货人',
+            placeholder: '名字',
+            componentId: 'name'
+          },
+          tel: {
+            error: true,
+            title: '联系电话',
+            inputType: 'number',
+            placeholder: '请输入手机号',
+            componentId: 'tel'
+          },
+          address: {
+            title: '详细地址',
+            type: 'textarea',
+            placeholder: '请输入详细地址',
+            componentId: 'address'
+          }
+        },
+        // 无标题输入框
+        notitle: {
+          placeholder: '请输入收货人姓名',
+          componentId: 'notitle'
+        },
+        // 圆角输入框
+        radius: {
+          totalPrice: {
+            sright: true,
+            mode: 'wrapped',
+            title: '消费总额',
+            inputType: 'number',
+            placeholder: '询问收银员后输入',
+            componentId: 'totalPrice'
+          },
+          excludePrice: {
+            sright: true,
+            error: true,
+            mode: 'wrapped',
+            title: '不参与优惠金额',
+            inputType: 'number',
+            placeholder: '询问收银员后输入',
+            componentId: 'excludePrice'
+          },
+          notitle: {
+            mode: 'wrapped',
+            inputType: 'number',
+            placeholder: '请输入消费金额',
+            componentId: 'notile-radius'
+          }
+        },
+        // Form 中使用输入框
+        form: {
+          name: {
+            placeholder: '请输入收货人姓名',
+            componentId: 'form:test:name'
+          },
+          tel: {
+            name: 'tel',
+            inputType: 'tel',
+            placeholder: '请输入收货人手机号码',
+            componentId: 'form:test:tel'
+          }
+        },
         value: 'test',
         textareaValue: 'test textarea',
         area: ['省份', '北京市', '天津市', '河北省', '山西省', '内蒙古自治区', '辽宁省', '吉林省', '黑龙江省', '上海市', '江苏省', '浙江省', '安徽省', '福建省', '江西省', '山东省', '河南省', '湖北省', '湖南省', '广东省', '广西壮族自治区', '海南省', '重庆市', '四川省', '贵州省', '云南省', '西藏自治区', '陕西省', '甘肃省', '青海省', '宁夏回族自治区', '新疆维吾尔自治区', '台湾省', '香港特别行政区', '澳门特别行政区'],
@@ -145,17 +208,11 @@
           sex: ['男', '女']
         },
         handleFunctions: {
-          handleZanFieldChange: null,
-          handleZanFieldFocus: null,
-          handleZanFieldBlur: null
+          handleZanFieldChange: this.handleZanFieldChange,
+          handleZanFieldFocus: this.handleZanFieldFocus,
+          handleZanFieldBlur: this.handleZanFieldBlur
         }
       }
-    },
-    mounted () {
-      console.log(this)
-      this.handleFunctions.handleZanFieldChange = this.handleZanFieldChange
-      this.handleFunctions.handleZanFieldFocus = this.handleZanFieldFocus
-      this.handleFunctions.handleZanFieldBlur = this.handleZanFieldBlur
     },
     methods: {
       onAreaChange (e) {
