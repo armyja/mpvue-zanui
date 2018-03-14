@@ -1,6 +1,6 @@
 # mpvue-zanui
 
-> 使用 mpvue 重写 [zanui-weapp](https://github.com/youzan/zanui-weapp/)
+> 使用 mpvue 重写 [zanui-weapp](https://github.com/youzan/zanui-weapp/)，实现了其中所有组件。
 
 ## 使用方法
 
