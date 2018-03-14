@@ -8,17 +8,18 @@
         显示toptips
       </button>
     </view>
-    <ZanTopTips v-bind="zanTopTips"/>
+    <toptips />
   </view>
 
 
 </template>
 
 <script>
+  import { getComponentByTag } from '../../utils/helper'
   import ZanTopTips from '../../components/zan/toptips'
   export default {
     components: {
-      ZanTopTips
+      toptips: ZanTopTips
     },
     data () {
       return {
@@ -26,9 +27,8 @@
       }
     },
     methods: {
-      ...ZanTopTips.methods,
       showTopTips () {
-        this.showZanTopTips('toptips的内容')
+        getComponentByTag(this, 'toptips').showZanTopTips('toptips的内容')
       }
     }
   }

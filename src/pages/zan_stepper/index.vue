@@ -4,17 +4,17 @@
     <div class="doc-title zan-hairline--bottom">Stepper</div>
 
     <div style="padding: 40px 15px">
-      <ZanStepper v-bind="stepper1" :componentId="'stepper1'" :handleZanStepperChange="true" v-on:handleZanStepperChange="handleZanStepperChange" />
+      <zan-stepper v-bind="stepper1" componentId="stepper1" @handleZanStepperChange="handleZanStepperChange" />
     </div>
 
     <!-- 当最大值等于最小值时，组件不可用 -->
     <div style="padding: 40px 15px ">
-      <ZanStepper v-bind="stepper2" :componentId="'stepper2'" :handleZanStepperChange="true" v-on:handleZanStepperChange="handleZanStepperChange" />
+      <zan-stepper v-bind="stepper2" componentId="stepper2" @handleZanStepperChange="handleZanStepperChange" />
     </div>
 
     <!-- small size -->
     <div style="padding: 40px 15px ">
-      <ZanStepper v-bind="stepper3" :componentId="'stepper3'" :size="'small'"  :handleZanStepperChange="true" v-on:handleZanStepperChange="handleZanStepperChange"/>
+      <zan-stepper v-bind="stepper3" componentId="stepper3" size="small"  @handleZanStepperChange="handleZanStepperChange"/>
     </div>
   </div>
 </template>

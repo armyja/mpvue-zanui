@@ -1,6 +1,6 @@
 <template>
     <div class="zan-cell zan-field"
-         :class="{ 'zan-field--error' : error , 'zan-field--wrapped' : mode === 'wrapped' }">
+         :class="{ 'zan-field--error': error , 'zan-field--wrapped': mode === 'wrapped' }">
       <div
         v-if="title"
         class="zan-cell__hd zan-field__title">{{ title }}</div>

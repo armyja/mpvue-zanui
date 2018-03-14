@@ -24,31 +24,36 @@
 <script>
   import {extractComponentId} from '../../utils/helper'
   const maohao = ':'
-export default {
-    props: ['name', 'componentId', 'items', 'checkedValue', 'activeColor', 'handleZanSelectChange'],
-    data () {
-      return {
+  export default {
+    props: {
+      name: {
+        type: String,
+        default: ''
+      },
+      componentId: {
+        type: String,
+        default: ''
+      },
+      items: {
+        type: Array,
+        default: []
+      },
+      checkedValue: {
+        type: String,
+        default: ''
+      },
+      activeColor: {
+        type: String,
+        default: '#ff4444'
       }
+    },
+
+    data () {
+      return {}
     },
     computed: {
       maohao: function () {
         return maohao
-      },
-      getItemStyle: function () {
-        // if (!this.items) return null
-        // let arr = []
-        // for (let i = 0; i < this.items.length; i++) {
-        //   let item = this.items[i]
-        //   let padding = item.padding * 10 + 20
-        //   let style = 'padding-left: ' + padding + 'px;'
-        //
-        //   // 如果为选中状态，则高亮
-        //   if (item.value === this.checkedValue) {
-        //     style += 'color: ' + (this.activeColor || '#ff4444') + ';'
-        //   }
-        //   arr.push(style)
-        // }
-        // return arr
       },
       getColor: function () {
         return this.activeColor || '#ff4444'
@@ -64,14 +69,9 @@ export default {
         this.callback(componentId, value)
       },
       callback (componentId, value) {
-        const e = { componentId, value }
+        const e = {componentId, value}
         console.info('[zan:Select:change]', e)
-
-        if (this.handleZanSelectChange) {
-          this.handleZanSelectChange(e)
-        } else {
-          console.warn('页面缺少 handleZanSelectChange 回调函数')
-        }
+        this.$emit('handleZanSelectChange', e)
       }
     }
   }

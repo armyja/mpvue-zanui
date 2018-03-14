@@ -1,19 +1,19 @@
 <template>
   <div
     class="zan-toast"
-    :class="{ 'zan-toast--notitle' : !title }"
-    v-if="show"
+    :class="{ 'zan-toast--notitle' : !zanToast.title }"
+    v-if="zanToast.show"
     @click="clearZanToast"
   >
     <!-- icon 展示 -->
-    <div v-if="icon || image">
+    <div v-if="zanToast.icon || zanToast.image">
       <div
-        v-if=" image"
+        v-if="zanToast.image"
         class="zan-toast__icon zan-toast__icon-image"
-        :style="'background-image' + mao + 'url(' + image + ');'"
+        :style="computedStyleStr"
       ></div>
       <div
-        v-else-if="icon === 'loading'"
+        v-else-if="zanToast.icon === 'loading'"
         class="zan-toast__icon zan-toast__icon-loading"
       >
         <div class="zan-loading"></div>
@@ -21,22 +21,25 @@
       <div
         v-else
         class="zan-toast__icon zan-icon"
-        :class="'zan-icon-' + icon"
+        :class="'zan-icon-' + zanToast.icon"
       ></div>
     </div>
 
     <!-- 文案展示 -->
-    <div v-if=" title">{{ title }}</div>
+    <div v-if="zanToast.title">{{ zanToast.title }}</div>
   </div>
 </template>
 
 <script>
-  const maohao = ':'
   export default {
-    props: ['title', 'icon', 'image', 'show'],
     computed: {
-      mao: function () {
-        return maohao
+      computedStyleStr: function () {
+        return `background-image: url(${this.zanToast.image});`
+      }
+    },
+    data () {
+      return {
+        zanToast: {}
       }
     },
     methods: {

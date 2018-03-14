@@ -160,7 +160,7 @@
         // 圆角输入框
         radius: {
           totalPrice: {
-            sright: true,
+            // right: true,
             mode: 'wrapped',
             title: '消费总额',
             inputType: 'number',
@@ -168,7 +168,7 @@
             componentId: 'totalPrice'
           },
           excludePrice: {
-            sright: true,
+            // right: true,
             error: true,
             mode: 'wrapped',
             title: '不参与优惠金额',

@@ -29,56 +29,58 @@
       </button>
     </div>
 
-    <ZanToast v-bind="zanToast"></ZanToast>
+    <_toast />
   </div>
 </template>
 
 <script>
+  import { getComponentByTag } from '../../utils/helper'
   import ZanToast from '../../components/zan/toast'
   export default {
     components: {
-      ZanToast
+      _toast: ZanToast
     },
     data  () {
       return {
-        zanToast: {}
       }
     },
+    mounted () {
+      this.toast = getComponentByTag(this, '_toast')
+    },
     methods: {
-      ...ZanToast.methods,
       showToast () {
-        this.showZanToast('toast的内容')
+        this.toast.showZanToast('toast的内容')
       },
 
       showIconToast () {
-        this.showZanToast({
+        this.toast.showZanToast({
           title: 'toast的内容',
           icon: 'fail'
         })
       },
 
       showImageToast () {
-        this.showZanToast({
+        this.toast.showZanToast({
           title: 'toast的内容',
           image: 'https://b.yzcdn.cn/v2/image/dashboard/secured_transaction/suc_green@2x.png'
         })
       },
 
       showLoadingToast () {
-        this.showZanToast({
+        this.toast.showZanToast({
           title: 'toast的内容',
           icon: 'loading'
         })
       },
 
       showOnlyIcon () {
-        this.showZanToast({
+        this.toast.showZanToast({
           icon: 'fail'
         })
       },
 
       showLoading () {
-        this.showZanLoading('加载中')
+        this.toast.showZanLoading('加载中')
       }
     }
   }

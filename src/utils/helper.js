@@ -1,5 +1,13 @@
 // 从事件对象中解析得到 componentId
 // 需要在元素上声明 data-component-id
+export const getComponentByTag = (parent, tag) => {
+  for (let c of parent.$children) {
+    if (c.$options._componentTag === tag) {
+      return c
+    }
+  }
+}
+
 export const extractComponentId = (event = {}) => {
   const { dataset: { componentId } } = event.currentTarget || {}
   return componentId

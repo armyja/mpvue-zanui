@@ -18,7 +18,7 @@
       :data-max="max"
       :value="stepper"
       :disabled="min >= max"
-      bindblur="_handleZanStepperBlur"
+      @blur="_handleZanStepperBlur"
     />
     <div
       class="zan-stepper__plus"
@@ -33,7 +33,28 @@
 
 <script>
   export default {
-    props: ['componentId', 'size', 'stepper', 'min', 'max', 'handleZanStepperChange'],
+    props: {
+      componentId: {
+        type: String,
+        default: ''
+      },
+      size: {
+        type: String,
+        default: ''
+      },
+      stepper: {
+        type: Number,
+        default: 0
+      },
+      min: {
+        type: Number,
+        default: 0
+      },
+      max: {
+        type: Number,
+        default: 10
+      }
+    },
     methods: {
       _handleZanStepperMinus (e) {
         this.handle(e, -1)
@@ -48,7 +69,7 @@
         var componentId = dataset.componentId
         var max = +dataset.max
         var min = +dataset.min
-        var value = e.detail.value
+        var value = e.target.value
 
         if (!value) {
           setTimeout(() => {
@@ -84,12 +105,7 @@
         stepper = +stepper
         var e = {componentId, stepper}
         console.info('[zan:stepper:change]', e)
-
-        if (this.handleZanStepperChange) {
-          this.$emit('handleZanStepperChange', e)
-        } else {
-          console.warn('页面缺少 handleZanStepperChange 回调函数')
-        }
+        this.$emit('handleZanStepperChange', e)
       }
     }
   }

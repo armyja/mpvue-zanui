@@ -7,14 +7,14 @@
     <div class="zan-panel-title">基础用法</div>
     <div class="zan-panel">
       <div>
-        <zan-select v-bind="{ items, checkedValue: checked.base, componentId: 'base', handleZanSelectChange }"/>
+        <zan-select v-bind="{ items, checkedValue: checked.base, componentId: 'base'}" @handleZanSelectChange="handleZanSelectChange"/>
       </div>
     </div>
 
     <div class="zan-panel-title">自定义高亮颜色</div>
     <div class="zan-panel">
       <div>
-        <zan-select v-bind="{ items, checkedValue: checked.color, activeColor, componentId: 'color', handleZanSelectChange }"/>
+        <zan-select v-bind="{ items, checkedValue: checked.color, activeColor, componentId: 'color'}" @handleZanSelectChange="handleZanSelectChange"/>
       </div>
     </div>
 
@@ -22,7 +22,7 @@
     <form @submit="formSubmit">
       <div class="zan-panel">
         <div>
-          <zan-select v-bind="{ items, checkedValue: checked.form, name: 'formtest', componentId: 'form',  handleZanSelectChange }"/>
+          <zan-select v-bind="{ items, checkedValue: checked.form, name: 'formtest', componentId: 'form'}"  @handleZanSelectChange="handleZanSelectChange"/>
         </div>
       </div>
 
@@ -32,21 +32,21 @@
           formType="submit">提交数据</button>
       </div>
     </form>
-    <zan-top-tips v-bind="zanTopTips"/>
+    <toptips />
   </div>
 </template>
 
 <script>
+  import { getComponentByTag } from '../../utils/helper'
   import ZanSelect from '../../components/zan/select'
   import ZanTopTips from '../../components/zan/toptips'
   export default {
     components: {
       ZanSelect,
-      ZanTopTips
+      toptips: ZanTopTips
     },
     data () {
       return {
-        zanTopTips: {},
         items: [
           {
             padding: 0,
@@ -65,19 +65,17 @@
           color: '-1',
           form: '-1'
         },
-
         activeColor: '#4b0'
       }
     },
     methods: {
-      ...ZanTopTips.methods,
       handleZanSelectChange ({ componentId, value }) {
         this.checked[componentId] = value
       },
 
       formSubmit (event) {
         console.log('[zan:field:submit]', event.target.value)
-        this.showZanTopTips(`选中的值为${event.target.value.formtest}`)
+        getComponentByTag(this, 'toptips').showZanTopTips(`选中的值为${event.target.value.formtest}`)
       }
     }
   }

@@ -1,17 +1,22 @@
 <template name="zan-toptips">
   <view class="zan-toptips"
-        :class="{ 'zan-toptips--show' : show }">{{ content }}</view>
+        :class="{ 'zan-toptips--show' : zanTopTips.show }">{{ zanTopTips.content }}</view>
 </template>
 
 
 <script>
     export default {
-      props: ['show', 'content'],
       data () {
-        return {}
+        return {
+          zanTopTips: {
+            show: false,
+            content: ''
+          }
+        }
       },
       methods: {
         showZanTopTips (content = '', options = {}) {
+          console.log(this)
           let zanTopTips = this.zanTopTips || {}
           // 如果已经有一个计时器在了，就清理掉先
           if (zanTopTips.timer) {
