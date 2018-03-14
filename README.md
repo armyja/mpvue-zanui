@@ -20,8 +20,8 @@ npm run dev
 
 ## Bug
 
-- Field 输入框界面疯狂弹出输入法，带圆角输入框的 value 被替换
-- ……
+- Field 输入框界面中，带圆角输入框因为 css 问题，placeholder 无法靠右
+
 
 ## todo
 - [ ] props 属性使用对象包装
