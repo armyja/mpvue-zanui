@@ -11,6 +11,15 @@ git clone https://github.com/samwang1027/mpvue-zanui.git
 2. 安装依赖
 cd mpvue-zanui && npm install
 
+fix: 修改文件
+
+node_modules/mpvue-template-compiler/build.js 中
+
+第 4356 行： var cls = prettier.format(result.code, { semi: false, singleQuote: true }).slice(1).slice(0, -1).replace(/\n|\r/g, "")
+第 4364 行： var cls = prettier.format(result.code, { semi: false, singleQuote: true }).slice(1).slice(0, -1).replace(/\n|\r/g, "")
+
+保存文件
+
 3. 启动程序
 npm run dev
 
