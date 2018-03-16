@@ -1,6 +1,6 @@
 {
   "name": "mpvue-zanui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "使用 mpvue 重写 zanui",
   "author": "Jeffrey Wang <jeffreywang1027@qq.com>",
   "scripts": {
