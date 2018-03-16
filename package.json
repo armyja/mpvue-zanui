@@ -1,9 +1,8 @@
 {
   "name": "mpvue-zanui",
   "version": "1.0.0",
-  "description": "A Vue.js project",
-  "author": "Jeffrey Wang <546323405@qq.com>",
-  "private": true,
+  "description": "使用 mpvue 重写 zanui",
+  "author": "Jeffrey Wang <jeffreywang1027@qq.com>",
   "scripts": {
     "dev": "node build/dev-server.js",
     "start": "node build/dev-server.js",
