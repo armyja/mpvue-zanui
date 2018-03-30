@@ -13,7 +13,7 @@
       class="zan-stepper__text"
       :class="{ 'zan-stepper--disabled' : min >= max }"
       type="number"
-      data-component-id="componentId"
+      :data-component-id="componentId"
       :data-min="min"
       :data-max="max"
       :value="stepper"
