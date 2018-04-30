@@ -7,7 +7,7 @@
       :class="{'zan-tab__item--selected': selectedId === item.id }"
       :data-component-id="componentId"
       :data-item-id="item.id"
-      @click="__handleZanTabChange"
+      @click="__change"
     >
       <div class="zan-tab__title">{{ item.title }}</div>
     </div>
@@ -19,19 +19,12 @@
   export default {
     props: ['list', 'selectedId', 'componentId', '_handleZanTabChange'],
     methods: {
-      __handleZanTabChange (e) {
-        console.log(this)
+      __change (e) {
         const componentId = extractComponentId(e)
         const dataset = e.currentTarget.dataset
         const selectedId = dataset.itemId
         const data = { componentId, selectedId }
-
-        console.info('[zan:tablist:change]', data)
-        if (this._handleZanTabChange) {
-          this._handleZanTabChange(data)
-        } else {
-          console.warn('页面缺少 _handleZanTabChange 回调函数')
-        }
+        this.$emit('change', data)
       }
     }
   }

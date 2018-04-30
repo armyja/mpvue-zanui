@@ -4,13 +4,13 @@
     <div class="doc-title zan-hairline--bottom">TAB</div>
 
     <div style="margin: 20px 0">
-      <ZanTab v-bind="tab1" :componentId="'tab1'" :handleZanTabChange="handleZanTabChange"/>
+      <ZanTab v-bind="tab1" :componentId="'tab1'" @change="handleZanTabChange"/>
     </div>
     <div style="margin: 20px 0">
-      <ZanTab v-bind="tab2" :componentId="'tab2'" :handleZanTabChange="handleZanTabChange"/>
+      <ZanTab v-bind="tab2" :componentId="'tab2'" @change="handleZanTabChange"/>
     </div>
     <div style="margin: 20px 0">
-      <ZanTab v-bind="tab3" :componentId="'tab3'" :handleZanTabChange="handleZanTabChange"/>
+      <ZanTab v-bind="tab3" :componentId="'tab3'" @change="handleZanTabChange"/>
     </div>
   </div>
 </template>
