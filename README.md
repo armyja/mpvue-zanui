@@ -29,7 +29,7 @@ npm run dev
 npm install mpvue-zanui
 ```
 
-2. 将 `node_modules/mpvue-zanui/src/assets/zanui.wxss` 拷贝到自己的项目文件夹中，并在 `App.vue` 内导入
+2. 在 `App.vue` 内通过 `@import '~mpvue-zanui/src/assets/style/zanui.wxss';` 的方式导入zanui样式
 
 
 ~~3. 调用方式在 `node_modules/mpvue-zanui/index.js` 中，如 `import {TopTips} from 'mpvue-zanui'`~~
