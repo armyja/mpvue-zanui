@@ -1,6 +1,12 @@
 # mpvue-zanui
 
-> 使用 mpvue 重写 [zanui-weapp](https://github.com/youzan/zanui-weapp/)，实现了其中所有组件。
+使用 mpvue 重写 [zanui-weapp](https://github.com/youzan/zanui-weapp/)，实现了其中所有组件。
+
+> Vant Weapp 是基于有赞 Zanui 组件库进行的品牌升级，对于仍在使用 Zanui 的用户，建议逐渐使用 Vant Weapp 替换原有的组件。  
+>  
+> Zanui 后续会进入维护状态，仓库地址为：https://github.com/youzan/zanui-weapp  
+> Vant 在 mpvue 的使用方法可参照 https://github.com/Rychou/mpvue-vant  
+
 
 ## 使用方法
 
